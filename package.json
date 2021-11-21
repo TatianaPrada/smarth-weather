@@ -18,10 +18,18 @@
   },
   "homepage": "https://github.com/TatianaPrada/second-project#readme",
   "dependencies": {
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3",
     "chalk": "^4.1.2",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "cookieparser": "^0.1.0",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "follow-redirects": "^1.14.5",
+    "fs": "^0.0.1-security",
     "hbs": "^4.2.0",
     "mongoose": "^6.0.13"
   },
