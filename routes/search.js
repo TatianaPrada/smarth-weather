@@ -34,7 +34,7 @@ router.get("/search/results", (req, res) => {
 
 //POST route 
 router.get("/search", async (req, res) => {
-    const destFromForm = req.body.name;
+    const destFromForm = req.query;
     console.log(destFromForm)
     try{
         const apiCall = await axios(`https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${destFromForm}`,
