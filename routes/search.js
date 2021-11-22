@@ -9,20 +9,8 @@ const {isLoggedIn} = require("../middleware/route-guard")
 
 //GET routes
 router.get("/search", (req, res) => {
-  res.render("destinations/search.hbs");
+  res.render("cities/search.hbs");
 });
-
-
-// const options = {
-//     'method': 'GET',
-//     'hostname': 'api.roadgoat.com',
-//     'port': 80,
-//     'path': '/api/v2/destinations/auto_complete?q=barcelona',
-//     'headers': {
-//       'Authorization': `Basic ${auth_key}`
-//     },
-//     'maxRedirects': 20
-// };
 
 
 //POST route 
@@ -30,16 +18,16 @@ router.get("/search/results", async (req, res) => {
     const destFromForm = req.query.destinationName;
     console.log(destFromForm)
     try{
-        const apiCall = await axios(`https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${destFromForm}`,
-        {headers: {'Authorization': `Basic ${auth_key}`}
-    })
+         const apiCall = await axios(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_KEY}&q=${destFromForm}&aqi=yes`)
+        const destinations = apiCall.data
+        console.log(destinations)
+        res.render("cities/results", {destinations})
 
-    const destinations = apiCall.data.data
-    console.log(destinations[0].relationships.featured_photo)
-    res.render("destinations/results", {info: destinations, relationships: destinations[0].relationships})
     } catch(err){
         console.log((err))
     }
 })
+
+
 
 module.exports = router;

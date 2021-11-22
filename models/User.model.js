@@ -12,7 +12,7 @@ const userSchema = new Schema(
       match: [/\S+@\S+\.\S+/, "Email not valid"]
     },
     password: { type: String, required: true },
-    wishlist: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
+    myCities: [{ type: Schema.Types.ObjectId, ref: "City" }],
   },
   { timestamps: true }
 );
