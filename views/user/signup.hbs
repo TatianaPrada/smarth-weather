@@ -3,6 +3,7 @@
 		<h2>Sign Up</h2>
 		<p>Please fill in this form to create an account!</p>
 		<hr>
+	
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -39,10 +40,10 @@
 		<div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
         </div>
+		{{#if msg}}
+  			<p id="message">{{msg}}</p>
+		{{/if}}
     </form>
 	<div class="text-center">Already have an account? <a href="/login">Login here</a></div>
 </div>
 
-{{#if msg}}
-  <p>{{msg}}</p>
-{{/if}}

@@ -4,13 +4,21 @@ const bcrypt = require("bcryptjs");
 //Model
 const User = require("../models/User.model");
 
-//GET Sign up form
+//GET routes
 router.get("/signup", (req, res, next) => {
     res.render("user/signup");
 });
 
-//Middleware
+router.get("/login", (req, res, next) => {
+  res.render("user/login");
+});
 
+router.get("/my-profile", (req, res, next) => {
+res.render("user/myProfile");
+});
+
+
+//Middleware
 const {isLoggedOut} = require("../middleware/route-guard")
 const {isLoggedIn} = require("../middleware/route-guard")
 
@@ -48,21 +56,17 @@ router.post("/signup", async (req, res, next) => {
       const hashedPassword = await bcrypt.hash(password, 10);
       const createdUser = await User.create({
         username,
+        name,
         email,
         password: hashedPassword,
       });
-      res.redirect("/user/signup"), {msg : "Your account was succesfully created"};
+      res.render("user/signup", { msg: `Your account was succesfully created, now you can login to access into your account`});
     } catch (err) {
       console.log(err);
     }
 });
 
-//GET login form
-router.get("/login", (req, res, next) => {
-    res.render("user/login");
-});
-
-//POST for login
+//POST for login session
 router.post("/login", async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
@@ -81,21 +85,22 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.loggedUser = existingUser;
-    console.log("SESSION ====> ,", req.session);
-    res.redirect("/search")
+    //console.log("SESSION ====> ,", req.session);
+    res.render("user/myProfile", existingUser)
+    console.log(existingUser)
 });
   
-//   //POST logout
-//   router.get("/logout", async (req, res, next) => {
-//     res.clearCookie("connect.sid", { path: "/" });
+  //POST logout
+  router.get("/logout", async (req, res, next) => {
+    res.clearCookie("connect.sid", { path: "/" });
   
-//     try {
-//       await req.session.destroy();
-//       res.redirect("/");
-//     } catch (err) {
-//       next(err);
-//     }
-//   });
+    try {
+      await req.session.destroy();
+      res.redirect("/");
+    } catch (err) {
+      next(err);
+    }
+  });
   
 
 module.exports = router;
