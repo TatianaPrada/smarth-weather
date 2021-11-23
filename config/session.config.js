@@ -23,4 +23,12 @@ module.exports = (app) => {
       }),
     })
   );
+
+    //Middleware to update value of the cart
+    app.use((req, res, next) => {
+      if (req.session.loggedUser) {
+        res.locals.session = req.session
+      }
+      next()
+    })
 };

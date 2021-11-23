@@ -1,1 +1,33 @@
-<h1>city</h1>
+<h1>Weather details: </h1>
+<div>
+    <div>
+        <h3>{{cityDetails.location.name}}, {{cityDetails.location.region}}, {{cityDetails.location.country}}</h3>
+        <p>Local time: {{cityDetails.location.localtime}}</p>
+        <p>{{day1.day.mintemp_c}}º C - {{cityDetails.current.condition.text}}</p>
+        <img src="{{cityDetails.current.condition.icon}}" alt="{{cityDetails.current.condition.text}}">
+        <p>Feels like {{cityDetails.current.feelslike_c}}º C</p>
+        <p>Min: {{day1.day.mintemp_c}}º C - Max: {{day1.day.maxtemp_c}}º C</p>
+        <p>Air Quality: {{airQuality}} <small> (acoording to US-EPA standard)</small></p>
+    </div>
+
+    <div>
+        <h5>Atmosphere data:</h5>
+        <p>Chance of rain: {{day1.day.daily_chance_of_rain}} %</p>
+        <p>Wind speed: {{cityDetails.current.wind_kph}} kph</p>
+        <p>Humidity: {{cityDetails.current.humidity}} %</p>
+        <p>Cloud average: {{cityDetails.current.cloud}} %</p>
+        <p>UV strengh: {{uv}}</p>
+    </div>
+
+    <div>
+        <h5>Astronomy: </h5>
+        <p>Sunrise: {{day1.astro.sunrise}}</p>
+        <p>Sunset: {{day1.astro.sunset}}</p>
+        <p>Moonrise: {{day1.astro.moonrise}}</p>
+        <p>Moonset: {{day1.astro.moonset}}</p>
+        <p>Moon phase: {{day1.astro.moon_phase}}</p>
+        <p>Moon illumination: {{day1.astro.moon_illumination}} %</p>
+    </div>
+
+
+</div>

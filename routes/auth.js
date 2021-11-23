@@ -4,26 +4,28 @@ const bcrypt = require("bcryptjs");
 //Model
 const User = require("../models/User.model");
 
-//GET routes
-router.get("/signup", (req, res, next) => {
-    res.render("user/signup");
-});
-
-router.get("/login", (req, res, next) => {
-  res.render("user/login");
-});
-
-router.get("/my-profile", (req, res, next) => {
-res.render("user/myProfile");
-});
-
-
 //Middleware
 const {isLoggedOut} = require("../middleware/route-guard")
 const {isLoggedIn} = require("../middleware/route-guard")
 
+//GET routes
+router.get("/signup", isLoggedOut, (req, res, next) => {
+    res.render("user/signup");
+});
+
+router.get("/login", isLoggedOut, (req, res, next) => {
+  res.render("user/login");
+});
+
+router.get("/my-profile", isLoggedIn, (req, res, next) => {
+  console.log(req.session.loggedUser)
+  const currentUser = req.session.loggedUser
+  res.render("user/myProfile", {currentUser});
+  
+});
+
 //POST to create a new user
-router.post("/signup", async (req, res, next) => {
+router.post("/signup", isLoggedOut, async (req, res, next) => {
     const { username, name, email, password, passwordRepeat } = req.body;
     if (!username || !email || !name || !password || !passwordRepeat) {
       res.render("user/signup", { msg: "Please fill all the inputs" });
@@ -67,7 +69,7 @@ router.post("/signup", async (req, res, next) => {
 });
 
 //POST for login session
-router.post("/login", async (req, res) => {
+router.post("/login", isLoggedOut, async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
       res.render("user/login", { msg: "Please fill all the inputs" });
@@ -83,11 +85,10 @@ router.post("/login", async (req, res) => {
       res.render("user/login", { msg: "Incorrect password" });
       return;
     }
-
-    req.session.loggedUser = existingUser;
-    //console.log("SESSION ====> ,", req.session);
-    res.render("user/myProfile", existingUser)
-    console.log(existingUser)
+    req.session.loggedUser = existingUser
+    console.log(req.session)
+    res.redirect("/my-profile")
+    //console.log(existingUser)
 });
   
   //POST logout
@@ -96,7 +97,7 @@ router.post("/login", async (req, res) => {
   
     try {
       await req.session.destroy();
-      res.redirect("/");
+      res.redirect("/login");
     } catch (err) {
       next(err);
     }
