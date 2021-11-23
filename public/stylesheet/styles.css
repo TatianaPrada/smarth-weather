@@ -92,7 +92,11 @@ body {
 }
 
 /* Layout */
-
 .container {
     margin-top: 10px;
+}
+
+/* City view*/
+.ast-image {
+    width: 10vw;
 }
