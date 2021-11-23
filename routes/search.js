@@ -13,6 +13,25 @@ router.get("/search", (req, res) => {
 });
 
 
+//GET Rroute for each city
+
+router.get("/results/city/:cityName", async (req, res) => {
+    
+    const cityName = req.query.cityName
+    console.log(cityName)
+    try{
+        const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${cityName}&days=1&aqi=no&alerts=no`)
+        const cityDetais = apiCall
+        //console.log(cityDetais)
+        res.render("cities/results", {cityDetais})
+
+    } catch(err){
+        console.log((err))
+    }
+    res.render("cities/city.hbs");
+});
+
+
 //POST route 
 router.get("/search/results", async (req, res) => {
     const destFromForm = req.query.destinationName;
@@ -27,6 +46,8 @@ router.get("/search/results", async (req, res) => {
         console.log((err))
     }
 })
+
+
 
 
 

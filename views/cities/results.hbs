@@ -1,8 +1,10 @@
 <h1>results</h1>
 
 {{#each destinations}}
-<h3>{{this.name}}</h3>
-<p>{{this.region}}</p>
+<p>{{this.name}}, {{this.region}}</p>
 <p>{{this.country}}</p>
+<form method="GET" action="/results/city/{{this.name}}" name="cityName">
+<button type="submit" class="btn btn-primary">See Details</button>
+</form>
 {{/each}}
 
