@@ -5,3 +5,24 @@
 <a class="" href="/search">Search a city</a>
 
 <p>My cities list:</p>
+
+{{#if myCities}}
+
+{{#each myCities}}
+
+<p>{{this.name}} </p>
+<p>{{this.country}}</p>
+    <form method="GET" action="/results/city/{{this.name}}+{{this.country}}" name="cityName">
+        <button type="submit" class="btn btn-primary">See Details</button>
+    </form>
+    <form method="GET" action="/city/delete/{{this._id}}" name="city">
+        <button type="submit" class="btn btn-primary">Delete of my favorites</button>
+    </form>
+
+{{/each}}
+
+{{/if}}
+
+{{#if msg}}
+  <p>{{msg}}</p>
+{{/if}}

@@ -1,18 +1,20 @@
 {{!-- <h1>Weather details: </h1> --}}
-<form method="GET" action="" name="city">
-<button type="submit" class="btn btn-primary">Add to my favorites</button>
+<form method="POST" action="/city/add/{{cityDetails.location.name}}+{{cityDetails.location.country}}" name="city">
+    <button type="submit" class="btn btn-primary">Add to my favorites</button>
 </form>
+
 <section>
+   
     <h3><i class="bi bi-pin-map-fill"></i> {{cityDetails.location.name}}, {{cityDetails.location.region}},</h3>
     <h4>{{cityDetails.location.country}}</h4>
     <div class="border">
         <div>
             <div>
-                <p><i class="bi bi-calendar-check"></i> Time: {{cityDetails.location.localtime}}</p>
+                <p><i class="bi bi-clock-fill"></i> Time: {{cityDetails.location.localtime}}</p>
             </div>
             <div>
                 <img src="{{cityDetails.current.condition.icon}}" alt="{{cityDetails.current.condition.text}}">    
-                <p>{{day1.day.mintemp_c}}º C - {{cityDetails.current.condition.text}}</p>
+                <p><i class="wi wi-thermometer"></i> {{day1.day.mintemp_c}}º C - {{cityDetails.current.condition.text}}</p>
             </div>
             <div>
                 <p><i class="bi bi-emoji-smile"></i> Feels like {{cityDetails.current.feelslike_c}}º C</p>       
@@ -27,7 +29,7 @@
                 <p><i class="bi bi-plus-slash-minus"></i> Min: {{day1.day.mintemp_c}}º C - Max: {{day1.day.maxtemp_c}}º C</p>
             </div>  
             <div>
-            <p><i class="bi bi-cloud-hail-fill"></i> Chance of rain: {{day1.day.daily_chance_of_rain}} %</p>
+            <p><i class="bi bi-umbrella-fill"></i> Chance of rain: {{day1.day.daily_chance_of_rain}} %</p>
             </div>
             <div>
                 <p><i class="bi bi-wind"></i> Wind: {{cityDetails.current.wind_kph}} kph</p>
@@ -47,15 +49,15 @@
                 <p><i class="bi bi-sunglasses"></i> UV strengh: {{uv}}</p>
             </div>
             <div>
-                <p><i class="bi bi-brightness-alt-high-fill"></i> Sunrise: {{day1.astro.sunrise}}</p>
-                <p><i class="bi bi-brightness-alt-low-fill"></i> Sunset: {{day1.astro.sunset}}</p>
+                <p><i class="bi bi-sunrise-fill"></i> Sunrise: {{day1.astro.sunrise}}</p>
+                <p><i class="bi bi-sunset-fill"></i> Sunset: {{day1.astro.sunset}}</p>
             </div>
         </div>
         <div>
             <div>
                 <img src="/images/moon3.png" class= "ast-image">
                 <p><i class="bi bi-circle-half"></i> Moon phase: {{day1.astro.moon_phase}}</p>
-                <p><i class="bi bi-brightness-alt-high"></i> Moon illumination: {{day1.astro.moon_illumination}} %</p>
+                <p><i class="bi bi-moon"></i> Moon illumination: {{day1.astro.moon_illumination}} %</p>
             </div>
             <div>
                 <p><i class="bi bi-moon-fill"></i> Moonrise: {{day1.astro.moonrise}}</p>

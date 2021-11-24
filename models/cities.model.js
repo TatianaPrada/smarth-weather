@@ -2,8 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const citySchema = new Schema(
   {
-    city: { type: String, required: true },
+    name: { type: String, required: true },
     country: {type: String},
+    averageTemp: {type: Number},
+    status: {type: String},
+    icon: {type: String},
+    min: {type: Number},
+    max: {type: Number}
   },
   { timestamps: true }
 );

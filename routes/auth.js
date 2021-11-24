@@ -17,10 +17,12 @@ router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("user/login");
 });
 
-router.get("/my-profile", isLoggedIn, (req, res, next) => {
-  console.log(req.session.loggedUser)
+router.get("/my-profile", isLoggedIn, async (req, res, next) => {
+  //console.log(req.session.loggedUser)
   const currentUser = req.session.loggedUser
-  res.render("user/myProfile", {currentUser});
+  const userCities = await User.findById(req.session.loggedUser).populate('myCities')
+  const myCities = userCities. myCities
+  res.render("user/myProfile", {currentUser, myCities});
   
 });
 
@@ -86,9 +88,9 @@ router.post("/login", isLoggedOut, async (req, res) => {
       return;
     }
     req.session.loggedUser = existingUser
-    console.log(req.session)
+    console.log(req.session.loggedUser)
     res.redirect("/my-profile")
-    //console.log(existingUser)
+    
 });
   
   //POST logout
