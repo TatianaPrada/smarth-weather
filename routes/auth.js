@@ -28,21 +28,26 @@ router.get("/my-profile/change-password", isLoggedIn, async (req, res, next) => 
   res.render("user/editProfile", {currentUser})
 });
 
+//Route GET for profile
 router.get("/my-profile", isLoggedIn, async (req, res, next) => {
-  
+
   let currentUser = req.session.loggedUser
   try{
     const userCities = await User.findById(req.session.loggedUser).populate('myCities')
     const myCities = userCities.myCities
     
     let citiesArr = []
+    let localtime = ""
    
       for(let i = 0; i < myCities.length; i++){
         const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${myCities[i].name}+${myCities[i].country}&days=3&aqi=yes&alerts=no`)
         const cityInfo = apiCall.data
+        localtime = cityInfo.location.localtime.split(" ")[1]
+        cityInfo.location.localtime = localtime
+        //agregar id de myCities en citiesArr
         citiesArr.push(cityInfo)
       }
-    console.log(citiesArr)
+    // console.log(citiesArr)
     res.render("user/myProfile", {currentUser, citiesArr})
   } catch(err){
     console.log((err))

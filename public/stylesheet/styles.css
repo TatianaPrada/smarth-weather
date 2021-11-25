@@ -1,6 +1,7 @@
   body {
     color: black;
     font-family: 'Nunito', sans-serif;
+    
 }
 
 /* Nav bar*/
@@ -109,6 +110,165 @@ Sign up styles and login
     color: black;
 }
 
+/*Profile view*/
+
+.first-section {
+    display: flex; 
+}
+
+.first-section div {
+    width: 50%;
+    margin-bottom: 2%;
+}
+
+.my-tittle {
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: 800;
+    font-size: 35px;
+}
+.my-name {
+  font-style: italic;  
+}
+.my-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+
+.explanation {
+    text-align: center;
+}
+.group-cards {
+    /* background-color: cornflowerblue; */
+    display: flex;
+    justify-content: center;
+}
+.main-div {
+    border: 1px;
+    border-style: outset;
+    margin: 0 2% 2% 0;
+    /* width: 28vw; */
+    border-radius: 20px;
+    color: white;
+    box-shadow: 8px 5px 5px 0px rgba(0, 0, 0, 0.6);
+    background: #fff url(https://i.pinimg.com/474x/a4/5f/b3/a45fb310e25627ba24a7b6ebd48d64bb.jpg) center bottom/cover no-repeat padding-box;
+}
+
+.first-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 40px;
+    /* background-color: hotpink; */
+    padding: 7px 5px 0 5px;
+    
+}
+.city-name {
+    font-weight: 900;
+    font-size: large;
+}
+.hour {
+    text-align: right;
+    font-size: small;
+    justify-self: left;
+    align-self: left;
+}
+
+.second-div { 
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* background-color: khaki; */
+    justify-content: center;
+}
+
+.image-div {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 45%;
+}
+
+.status-icon {
+    width: 90px;
+    filter: drop-shadow(11px 4px 8px rgba(0, 0, 0, 0.64));
+}
+
+.status-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grades {
+    font-size: 30px;
+    margin: 0;
+    font-family: 'Cabin Sketch', cursive;
+    color: whitesmoke;
+}
+
+.status {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.third-div {
+    display: flex;
+    /* background-color: chartreuse; */
+}
+.headers {
+    width: 33%;
+}
+.weat-elem {
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+}
+.weath-value {
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 900;
+    color: whitesmoke;
+}
+
+.span.ms-1 {
+    margin: 0;
+}
+.links-box {
+    display: flex;
+    flex: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+}
+.city-link{
+    color: white
+}
+.city-link:hover {
+    color: whitesmoke;
+}
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.delete-link:hover {
+    color:darkred;
+
+}
+
 /* Layout */
 .container {
     margin-top: 10px;
@@ -131,6 +291,17 @@ Sign up styles and login
         display: flex;
         flex-direction: row;
     }
-
-
 }
+
+
+/* @media (max-width: 900px) {
+    .main-div {
+        width: 100vw;
+     
+    }
+    .second-div {
+        display: flex;
+        flex-wrap: wrap;   
+    }
+
+} */

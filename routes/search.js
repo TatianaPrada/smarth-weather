@@ -17,7 +17,6 @@ router.get("/search/results", isLoggedIn, async (req, res) => {
         const apiCall = await axios(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_KEY}&q=${destFromForm}&aqi=no`)
         const destinations = apiCall.data
         res.render("cities/results", {destinations})
-
     } catch(err){
         console.log((err))
     }
@@ -54,13 +53,9 @@ router.get("/results/city/:cityName", async (req, res) => {
             else if (uv <= 7){uv = "High"}
             else if (uv <= "10"){uv = "Very High"}
             else if (uv > "11"){uv = "Extremily High"}
-            
             return uv
         }
         uvIndex()
-        console.log(req.session.loggedUser.myCities)
-        console.log(cityDetails)
-
         res.render("cities/city", {cityDetails, day1, day2, day3, airQuality, uv} )
     } catch(err){
         console.log((err))
@@ -76,7 +71,6 @@ router.post("/city/add/:cityName", async (req, res) => {
         const cityDetails = apiCall.data
         const forecastday = apiCall.data.forecast.forecastday
         const [day1, day2, day3] = forecastday
-
         const currentUser = await User.findById(req.session.loggedUser._id).populate("myCities")
         let exist = false
 
@@ -85,7 +79,6 @@ router.post("/city/add/:cityName", async (req, res) => {
                 exist = true
             }
         })
-
         if(!exist) {
             const dataToUpload = {
                 name: cityDetails.location.name,
@@ -104,20 +97,26 @@ router.post("/city/add/:cityName", async (req, res) => {
             const myCities = currentUser. myCities
             res.render('user/myProfile', {currentUser, myCities, msg: "This city already exists"})
         }
-        
-        
     } catch(err){
         console.log((err))
     }
 });
 
+
+router.get("/city/delete/:cityId", isLoggedIn, async (req, res, next) => {
+    const currentUser = req.session.loggedUser
+    res.render("users/myProfile", {currentUser})
+  })
+
+
+  //**//
 //Route Post for delete a city
-router.get("/city/delete/:cityId", async (req, res) => {
+router.post("/city/delete/:cityId", async (req, res) => {
     
     const cityId = req.params.cityId
     // const currentUser = await User.findById(req.session.loggedUser._id)
+    //findOneAndDelete()
     const userId = req.session.loggedUser._id
-
     try{
         const editedUser = await User.findByIdAndUpdate(userId, {$pull: {myCities: cityId}}, {new: true}) 
         console.log(editedUser)
