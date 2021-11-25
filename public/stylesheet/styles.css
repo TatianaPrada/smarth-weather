@@ -1,9 +1,27 @@
   body {
     color: black;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
-/* Sign up styles and login*/
+/* Nav bar*/
+
+.tittle{
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.nav-item {
+    font-family:'Outfit', sans-serif;
+}
+
+.d-flex{
+    margin-bottom: 0;
+}
+
+.navbar-brand{
+    margin-left: 10px;
+}
+
+Sign up styles and login
 
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
@@ -108,9 +126,11 @@
     flex-direction: column;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
     .form {
         display: flex;
         flex-direction: row;
     }
+
+
 }
