@@ -101,3 +101,16 @@
     width: 10vw;
 }
 
+/*Edit profile*/
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 800px) {
+    .form {
+        display: flex;
+        flex-direction: row;
+    }
+}

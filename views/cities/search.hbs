@@ -2,7 +2,24 @@
 
 <section class="">
     <form class="d-flex" method="GET" action="/search/results">
-    <input name= "destinationName" type="text" id="destinationSearch" class="form-control me-2" type="search" placeholder="City name" aria-label="Search">
+    <input name= "cityName" type="text" id="destinationSearch" class="form-control me-2" type="search" placeholder="City name" aria-label="Search">
     <button id="search-button" type="submit" class="btn btn-outline-dark" type="submit">Search</button>
     </form>
 </section>
+
+
+
+{{#if destinations}}
+{{#each destinations}}
+
+<h1>Results</h1>
+<p>{{this.name}} </p>
+<p>{{this.country}}</p>
+
+<form method="GET" action="/results/city/{{this.name}}{{this.country}}" name="cityName">
+    <button type="submit" class="btn btn-primary">See Details</button>
+</form>
+{{/each}}
+
+{{/if}}
+

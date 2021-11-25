@@ -12,11 +12,10 @@ router.get("/search", isLoggedIn, (req, res) => {
 });
 
 router.get("/search/results", isLoggedIn, async (req, res) => {
-    const destFromForm = req.query.destinationName;
+    const destFromForm = req.query.cityName;
     try{
         const apiCall = await axios(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_KEY}&q=${destFromForm}&aqi=no`)
         const destinations = apiCall.data
-        //console.log(destinations)
         res.render("cities/results", {destinations})
 
     } catch(err){
@@ -91,11 +90,6 @@ router.post("/city/add/:cityName", async (req, res) => {
             const dataToUpload = {
                 name: cityDetails.location.name,
                 country: cityDetails.location.country,
-                averageTemp: cityDetails.current.temp_c,
-                status: cityDetails.current.condition.text,
-                icon: cityDetails.current.condition.icon,
-                min: day1.day.mintemp_c,
-                max: day1.day.maxtemp_c
             }
         const justCreatedCity = await City.create(dataToUpload);
     

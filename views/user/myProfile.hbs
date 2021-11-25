@@ -2,22 +2,25 @@
 
 <a class="" href="/logout">Log out</a>
 
-<a class="" href="/search">Search a city</a>
+<a class="" href="/my-profile/edit">Edit my profile</a>
+<a class="" href="/my-profile/change-my-password">Change my password</a>
+
 
 <p>My cities list:</p>
 
-{{#if myCities}}
+{{#if citiesArr}}
 
-{{#each myCities}}
+{{#each citiesArr}}
 
-<p>{{this.name}} </p>
-<p>{{this.country}}</p>
-    <form method="GET" action="/results/city/{{this.name}}+{{this.country}}" name="cityName">
+
+<p>{{this.location.name}} </p>
+<p>{{this.location.country}}</p>
+    {{!-- <form method="GET" action="/results/city/{{this.name}}+{{this.country}}" name="cityName">
         <button type="submit" class="btn btn-primary">See Details</button>
     </form>
     <form method="GET" action="/city/delete/{{this._id}}" name="city">
         <button type="submit" class="btn btn-primary">Delete of my favorites</button>
-    </form>
+    </form> --}}
 
 {{/each}}
 
@@ -26,3 +29,4 @@
 {{#if msg}}
   <p>{{msg}}</p>
 {{/if}}
+
