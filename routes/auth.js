@@ -28,26 +28,22 @@ router.get("/my-profile/change-password", isLoggedIn, async (req, res, next) => 
   res.render("user/editProfile", {currentUser})
 });
 
-
 router.get("/my-profile", isLoggedIn, async (req, res, next) => {
-
+  
   let currentUser = req.session.loggedUser
   try{
     const userCities = await User.findById(req.session.loggedUser).populate('myCities')
     const myCities = userCities.myCities
     
     let citiesArr = []
-
-    myCities.forEach( async (city)=>{
-      const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${city.name}+${city.country}&days=3&aqi=yes&alerts=no`)
-      const cityInfo = apiCall.data;
-      citiesArr = [...citiesArr, cityInfo]
-    })
-    console.log(currentUser)
+   
+      for(let i = 0; i < myCities.length; i++){
+        const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${myCities[i].name}+${myCities[i].country}&days=3&aqi=yes&alerts=no`)
+        const cityInfo = apiCall.data
+        citiesArr.push(cityInfo)
+      }
     console.log(citiesArr)
-
     res.render("user/myProfile", {currentUser, citiesArr})
-    
   } catch(err){
     console.log((err))
   }
@@ -184,7 +180,6 @@ router.post("/my-profile/change-password", async (req, res, next) => {
   //POST logout
   router.get("/logout", async (req, res, next) => {
     res.clearCookie("connect.sid", { path: "/" });
-  
     try {
       await req.session.destroy();
       res.redirect("/login");
