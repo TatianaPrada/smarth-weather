@@ -1,11 +1,13 @@
-<h1>results</h1>
 
+<a class=" back-link badge badge-light" href="/"><i class="bi bi-arrow-left-short"></i>
+ Back</a>
+<h3>Results:</h3>
+
+<ul>
 {{#each destinations}}
-<p>{{this.name}} </p>
-<p>{{this.country}}</p>
-
-<form method="GET" action="/results/city/{{this.name}}{{this.country}}" name="cityName">
-    <button type="submit" class="btn btn-primary">See Details</button>
-</form>
+<li>
+<a class="result-link" href="/results/city/{{this.name}}{{this.country}}"><i class="bi bi-arrow-right-short"></i>
+  {{this.name}} </a>
+</li>
 {{/each}}
-
+</ul>

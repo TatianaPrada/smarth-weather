@@ -25,11 +25,13 @@ router.get("/search/results", isLoggedIn, async (req, res) => {
 //GET Route for each city
 
 router.get("/results/city/:cityName", async (req, res) => {
-    
+    let localtime = ""
     const cityName = req.params.cityName
     try{
         const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${cityName}&days=3&aqi=yes&alerts=no`)
         const cityDetails = apiCall.data
+        localtime = cityDetails.location.localtime.split(" ")[1]
+        cityDetails.location.localtime = localtime
         const forecastday = apiCall.data.forecast.forecastday
         const [day1, day2, day3] = forecastday
     
@@ -65,7 +67,6 @@ router.get("/results/city/:cityName", async (req, res) => {
 //Route POST for adding a city to profile
 router.post("/city/add/:cityName", async (req, res) => {
     const cityName = req.params.cityName
-
     try{
         const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${cityName}&days=3&aqi=yes&alerts=no`)
         const cityDetails = apiCall.data
@@ -73,6 +74,21 @@ router.post("/city/add/:cityName", async (req, res) => {
         const [day1, day2, day3] = forecastday
         const currentUser = await User.findById(req.session.loggedUser._id).populate("myCities")
         let exist = false
+
+        const userCities = await User.findById(req.session.loggedUser).populate('myCities')
+        const myCities = userCities.myCities
+    
+        let citiesArr = []
+        let localtime = ""
+   
+        for(let i = 0; i < myCities.length; i++){
+            const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${myCities[i].name}+${myCities[i].country}&days=3&aqi=yes&alerts=no`)
+            const cityInfo = apiCall.data
+            localtime = cityInfo.location.localtime.split(" ")[1]
+            cityInfo.location.localtime = localtime
+            //agregar id de myCities en citiesArr
+            citiesArr.push(cityInfo)
+      }
 
         currentUser.myCities.forEach((city)=>{
             if(city.name === cityDetails.location.name && city.country === cityDetails.location.country){
@@ -95,7 +111,7 @@ router.post("/city/add/:cityName", async (req, res) => {
         }
         else{
             const myCities = currentUser. myCities
-            res.render('user/myProfile', {currentUser, myCities, msg: "This city already exists"})
+            res.render('user/myProfile', {currentUser, citiesArr, msg: "This city already exists"})
         }
     } catch(err){
         console.log((err))

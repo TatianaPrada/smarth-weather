@@ -4,17 +4,20 @@
     </div>
     <div class="my-section">
         <p class="my-name"><i class="bi bi-person-fill"></i> {{currentUser.name}}</p>
-        <a class="" href="/my-profile/edit"><i class="bi bi-person-lines-fill"></i> Edit my profile</a>
+        <a class="edit-link" href="/my-profile/edit"><i class="bi bi-person-lines-fill"></i> Edit my profile</a>
     </div>
 </section>
 
 <section>
+{{#if msg}}
+  <p>{{msg}}</p>
+{{/if}}
+
     <div>
         <p class="explanation">Search for a city and add it to your profile</p>
     </div>
+            <div class="group-cards row" > 
 
-            <div class="group-cards row" >
-                
             {{#if citiesArr}}
             {{#each citiesArr}}
 
@@ -35,15 +38,15 @@
                     <div class="third-div">
                        <div class="headers">
                            <p class="weat-elem">Wind</p>
-                           <p class="weath-value"><i class="bi bi-wind" ></i> <span class="ms-1"> {{this.current.wind_kph}} kph</span></p>
+                           <p class="weath-value"><i class="bi bi-wind" ></i> <span class=""> {{this.current.wind_kph}} kph</span></p>
                        </div>
                        <div class="headers">
                            <p class="weat-elem">Humidity</p>
-                           <p class="weath-value"> <i class="bi bi-droplet-fill" ></i> <span class="ms-1"> {{this.current.humidity}} %</span></p>
+                           <p class="weath-value"> <i class="bi bi-droplet-fill" ></i> <span class=""> {{this.current.humidity}} %</span></p>
                        </div>
                        <div class="headers">
                            <p class="weat-elem">Clouds</p>
-                           <p class="weath-value"><i class="bi bi-cloud-fill"></i> <span class="ms-1"> {{this.current.cloud}} %</span></span></p>
+                           <p class="weath-value"><i class="bi bi-cloud-fill"></i> <span class=""> {{this.current.cloud}} %</span></span></p>
                        </div>
                     </div>   
                     <div class="links-box">                   
@@ -63,7 +66,4 @@
         </form> 
  --}}
 
-{{#if msg}}
-  <p>{{msg}}</p>
-{{/if}}
 

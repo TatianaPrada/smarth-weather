@@ -1,70 +1,61 @@
-{{!-- <h1>Weather details: </h1> --}}
-<form method="POST" action="/city/add/{{cityDetails.location.name}}+{{cityDetails.location.country}}" name="city">
-    <button type="submit" class="btn btn-primary">Add to my favorites</button>
-</form>
+<section>
+    <div class="up-div">
+        <div>
+            <p class="city-tittle"><i class="bi bi-pin-map-fill"></i> {{cityDetails.location.name}}, {{cityDetails.location.region}} - {{cityDetails.location.country}}</p>
+        </div>
+        <div>
+            <form method="POST" action="/city/add/{{cityDetails.location.name}}+{{cityDetails.location.country}}" name="city">
+                <button type="submit" class="btn btn-outline-dark">Add to my favorites</button>
+            </form>
+        </div>
+    </div>
+    
+</section>
 
 <section>
-   
-    <h3><i class="bi bi-pin-map-fill"></i> {{cityDetails.location.name}}, {{cityDetails.location.region}},</h3>
-    <h4>{{cityDetails.location.country}}</h4>
-    <div class="border">
-        <div>
-            <div>
-                <p><i class="bi bi-clock-fill"></i> Time: {{cityDetails.location.localtime}}</p>
+    <div class="group-cards row" > 
+        <div class="main-div2 card col-sm-5" >
+            <div class="first-div2">
+                <p class="hour2"><i class="bi bi-clock"> </i>{{cityDetails.location.localtime}}</p>
             </div>
+            <div class="second-div">
+                <div class="image-div">
+                    <img class="status-icon2" src="{{cityDetails.current.condition.icon}}" />
+                </div>
+                <div class="status-div">
+                    <p class="grades2">{{cityDetails.current.temp_c}}º C</p> 
+                    <p class="status2">{{cityDetails.current.condition.text}}</p>
+                </div>
+            </div> 
             <div>
-                <img src="{{cityDetails.current.condition.icon}}" alt="{{cityDetails.current.condition.text}}">    
-                <p><i class="wi wi-thermometer"></i> {{day1.day.mintemp_c}}º C - {{cityDetails.current.condition.text}}</p>
-            </div>
-            <div>
-                <p><i class="bi bi-emoji-smile"></i> Feels like {{cityDetails.current.feelslike_c}}º C</p>       
-            </div>
-            <div>
-                <p><i class="bi bi-wind"></i> Air Quality: {{airQuality}} <small> (acoording to US-EPA standard)</small></p>
-            </div>
-        </div>
-
-        <div> 
-            <div>
-                <p><i class="bi bi-plus-slash-minus"></i> Min: {{day1.day.mintemp_c}}º C - Max: {{day1.day.maxtemp_c}}º C</p>
-            </div>  
-            <div>
-            <p><i class="bi bi-umbrella-fill"></i> Chance of rain: {{day1.day.daily_chance_of_rain}} %</p>
-            </div>
-            <div>
-                <p><i class="bi bi-wind"></i> Wind: {{cityDetails.current.wind_kph}} kph</p>
-                <p><i class="bi bi-cloud-fill"></i> Cloud average: {{cityDetails.current.cloud}} %</p>
-            </div>
-            <div>
-                <p><i class="bi bi-droplet-fill"></i> Humidity: {{cityDetails.current.humidity}} %</p>
+                <p class="feels-like"><i class="bi bi-emoji-smile"></i> Feels like: {{cityDetails.current.feelslike_c}}º C</p>  
             </div>
         </div>
     </div>
 
-    <div class="border">
-        <h5>Astronomy: </h5>
-        <div>
-            <div>
-                <img src="/images/sun.png" class= "ast-image">
-                <p><i class="bi bi-sunglasses"></i> UV strengh: {{uv}}</p>
-            </div>
-            <div>
-                <p><i class="bi bi-sunrise-fill"></i> Sunrise: {{day1.astro.sunrise}}</p>
-                <p><i class="bi bi-sunset-fill"></i> Sunset: {{day1.astro.sunset}}</p>
-            </div>
+    <div class="flexbox">
+        <div class="astronomy">
+            <p><i class="bi bi-wind"></i> Air Quality: <span>{{airQuality}}</span></p>
+            <p><i class="bi bi-plus-slash-minus"></i> Min: {{day1.day.mintemp_c}}º C - Max: {{day1.day.maxtemp_c}}º C</p>
+            <p><i class="bi bi-umbrella-fill"></i> Chance of rain: <span class="span">{{day1.day.daily_chance_of_rain}} %</span></p>
+            <p><i class="bi bi-wind"></i> Wind: <span>{{cityDetails.current.wind_kph}} kph</span></p>
+            <p><i class="bi bi-cloud-fill"></i> Cloud average: <span>{{cityDetails.current.cloud}} %</span></p>
+            <p><i class="bi bi-droplet-fill"></i> Humidity: <span>{{cityDetails.current.humidity}} %</span></p>
         </div>
-        <div>
-            <div>
-                <img src="/images/moon3.png" class= "ast-image">
-                <p><i class="bi bi-circle-half"></i> Moon phase: {{day1.astro.moon_phase}}</p>
-                <p><i class="bi bi-moon"></i> Moon illumination: {{day1.astro.moon_illumination}} %</p>
+
+        <div class="astronomy">
+            <div class="sun-info">
+                <p><i class="bi bi-sunglasses"></i> UV strengh: <span>{{uv}}</span></p>
+                <p><i class="bi bi-sunrise-fill"></i> Sunrise: <span>{{day1.astro.sunrise}}</span></p>
+                <p><i class="bi bi-sunset-fill"></i> Sunset: <span>{{day1.astro.sunset}}<span></p>
             </div>
-            <div>
-                <p><i class="bi bi-moon-fill"></i> Moonrise: {{day1.astro.moonrise}}</p>
-            </div>
-            <div>
-                <p> <i class="bi bi-moon-stars-fill"></i> Moonset: {{day1.astro.moonset}}</p>
+            <div class="moon-info">
+                <p><i class="bi bi-mask"></i> Moon phase: <span>{{day1.astro.moon_phase}}<span></p>
+                <p><i class="bi bi-moon"></i> Moon illumination: <span>{{day1.astro.moon_illumination}} %</span></p>
+                <p><i class="bi bi-moon-fill"></i> Moonrise: <span>{{day1.astro.moonrise}}<span></p>
+                <p> <i class="bi bi-moon-stars-fill"></i> Moonset: <span>{{day1.astro.moonset}}</span></p>
             </div>
         </div>      
     </div>
+
 </section>
