@@ -111,7 +111,7 @@ router.post("/city/add/:cityName", async (req, res) => {
         }
         else{
             const myCities = currentUser. myCities
-            res.render('user/myProfile', {currentUser, citiesArr, msg: "This city already exists"})
+            res.render('user/myProfile', {currentUser, citiesArr, msg: "This city already exists in your list"})
         }
     } catch(err){
         console.log((err))
@@ -119,17 +119,18 @@ router.post("/city/add/:cityName", async (req, res) => {
 });
 
 
-router.get("/city/delete/:cityId", isLoggedIn, async (req, res, next) => {
-    const currentUser = req.session.loggedUser
-    res.render("users/myProfile", {currentUser})
-  })
+// router.get("/city/delete/:cityId", isLoggedIn, async (req, res, next) => {
+//     const currentUser = req.session.loggedUser
+//     res.render("users/myProfile", {currentUser})
+//   })
 
 
   //**//
 //Route Post for delete a city
-router.post("/city/delete/:cityId", async (req, res) => {
+router.get("/city/delete/:cityId", async (req, res) => {
     
     const cityId = req.params.cityId
+    console.log(cityId)
     // const currentUser = await User.findById(req.session.loggedUser._id)
     //findOneAndDelete()
     const userId = req.session.loggedUser._id

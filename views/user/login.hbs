@@ -2,7 +2,7 @@
     <form action="/login" method="POST">
 		<h2>Log in</h2>
 		{{#if msg}}
-		<p>{{msg}}</p>
+		<p class="error-msg">{{msg}}</p>
 		{{/if}}
         <div class="form-group">
 			<div class="input-group">
@@ -19,6 +19,6 @@
             <button type="submit" class="btn btn-primary btn-lg">Log in</button>
         </div>
     </form>
-	<div class="text-center">Don't have an account? <a href="/signup">Sing up here</a></div>
+	<div class="text-center">Don't you have an account? <a href="/signup">Sing up here</a></div>
 </div>
 

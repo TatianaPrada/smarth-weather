@@ -44,10 +44,10 @@ router.get("/my-profile", isLoggedIn, async (req, res, next) => {
         const cityInfo = apiCall.data
         localtime = cityInfo.location.localtime.split(" ")[1]
         cityInfo.location.localtime = localtime
-        //agregar id de myCities en citiesArr
+        cityInfo._id = myCities[i]._id.toString()
         citiesArr.push(cityInfo)
       }
-    // console.log(citiesArr)
+      console.log(citiesArr)
     res.render("user/myProfile", {currentUser, citiesArr})
   } catch(err){
     console.log((err))

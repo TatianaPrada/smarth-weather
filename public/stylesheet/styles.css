@@ -1,12 +1,22 @@
-  body {
+html,body {
+    height: 100vh;
+}
+
+body {
     color: black;
     font-family: 'Nunito', sans-serif;
+    margin: 0, auto;
 }
 
 p {
     margin-bottom: 10px;
 }
 
+.error-msg {
+    color:darkred;
+    font-size: 16px;
+    font-weight: 700;
+}
 /* Nav bar*/
 
 .tittle{
@@ -22,9 +32,20 @@ p {
 }
 
 .navbar-brand{
-    margin-left: 10px;
+    margin-left: 14px;
+}
+.nav-link {
+    margin-right: 10px;
 }
 
+.d-flex {
+    margin-right: 14px;
+}
+
+/*home*/
+.home-section {
+    height: 80%;
+}
 /* Sign up styles and login */
 
 .form-control, .form-control:focus, .input-group-addon {
@@ -250,8 +271,16 @@ p {
 
 a {
     text-decoration: none;
-    color: black;
+    color: darkblue;
     font-weight: 900;
+}
+
+.api-link {
+    color: whitesmoke;
+}
+
+.api-link:hover {
+    color: aliceblue;
 }
 .city-link{
     color: white
@@ -399,13 +428,26 @@ li {
     width: 90%;
     
 }
+.form-group {
+    width: 80%;
+}
+.signup-form {
+    width: 92%;
+}
 } 
 @media (min-width: 480px) and (max-width: 767px){
     .card {
         width: 45%;
     }
-    
+}
 
+@media all and (device-width: 1024px) {
+    /* body {
+        height: 90%;
+    } */
+    footer {
+        align-self: flex-end;
+    }
 }
 /* @media (min-width: 577px) and (max-width: 767px) {
     .card {
