@@ -476,13 +476,13 @@ li {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 @media (min-width: 900px) {
   .form {
     display: flex;
     flex-direction: row;
   }
-}
+} */
 
 @media (max-width: 479px) {
   .card {
@@ -516,9 +516,9 @@ li {
   /* body {
         height: 90%;
     } */
-  footer {
+  /* footer {
     align-self: flex-end;
-  }
+  } */
 }
 /* @media (min-width: 577px) and (max-width: 767px) {
     .card {
