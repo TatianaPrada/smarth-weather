@@ -1,453 +1,524 @@
-html,body {
-    height: 100vh;
+html,
+body {
+  min-height: 100vh;
 }
 
 body {
-    color: black;
-    font-family: 'Nunito', sans-serif;
-    margin: 0, auto;
+  color: black;
+  font-family: 'Nunito', sans-serif;
+  margin: 0, auto;
+}
+/* 
+#hbs-body-wrapper {
+  height: 80vh;
+} */
+/* home*/
+.home-section {
+    display: flex;
+    flex-wrap: wrap;    
+    height: fit-content;
+}
+.home-tittle {
+    font-family: 'Cabin Sketch', cursive;
+    text-align: center;
+    font-size: 20px;
 }
 
+.div1{
+    width: 35%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.div1-1, .div1-2 {
+    font-size: 17px;
+    width: 80%;
+    padding: 12px;
+    max-height: 40%;
+    margin-bottom: 15%;
+    border: 1px;
+    border-style: outset;
+  
+    border-radius: 20px;
+    /* color: white; */
+    box-shadow: 8px 5px 5px 0px rgba(0, 0, 0, 0.6);
+    /* background: #fff url(https://wallpaperaccess.com/full/4338762.jpg) center center/cover no-repeat; */
+
+}
+
+.div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+
+.div2-1 {
+    /* background: #fff url(https://wallpaperaccess.com/full/4338762.jpg) center center/cover no-repeat; */
+    margin: 5%;
+    padding: 12px;
+    border: 1px;
+    border-style: outset;
+    margin: 0 2% 2% 0;
+    font-weight: 900;
+    /* width: 28vw; */
+    border-radius: 20px;
+    /* color: white; */
+    box-shadow: 8px 5px 5px 0px rgba(0, 0, 0, 0.6);
+}
 p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .error-msg {
-    color:darkred;
-    font-size: 16px;
-    font-weight: 700;
+  color: darkred;
+  font-size: 16px;
+  font-weight: 700;
 }
 /* Nav bar*/
 
-.tittle{
-    font-family: 'Cabin Sketch', cursive;
+.tittle {
+  font-family: 'Cabin Sketch', cursive;
 }
 
 .nav-item {
-    font-family:'Outfit', sans-serif;
-}
-
-.d-flex{
-    margin-bottom: 0;
-}
-
-.navbar-brand{
-    margin-left: 14px;
-}
-.nav-link {
-    margin-right: 10px;
+  font-family: 'Outfit', sans-serif;
 }
 
 .d-flex {
-    margin-right: 14px;
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  margin-left: 14px;
+}
+.nav-link {
+  margin-right: 10px;
+}
+
+.d-flex {
+  margin-right: 14px;
 }
 
 /*home*/
 .home-section {
-    height: 80%;
+  height: 80%;
 }
 /* Sign up styles and login */
 
-.form-control, .form-control:focus, .input-group-addon {
-    border-color: #e1e1e1;
+.form-control,
+.form-control:focus,
+.input-group-addon {
+  border-color: #e1e1e1;
 }
-.form-control, .btn {        
-    border-radius: 3px;
+.form-control,
+.btn {
+  border-radius: 3px;
 }
 .signup-form {
-    width: 390px;
-    margin: 0 auto;
-    padding: 20px 0;
+  width: 390px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 .signup-form form {
-    color: #999;
-    border-radius: 3px;
-    margin-bottom: 15px;
-    background: #fff;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
+  color: #999;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 .signup-form h2 {
-    color: #333;
-    font-weight: bold;
-    margin-top: 0;
+  color: #333;
+  font-weight: bold;
+  margin-top: 0;
 }
 .signup-form hr {
-    margin: 0 -30px 20px;
+  margin: 0 -30px 20px;
 }
 .signup-form .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .signup-form label {
-    font-weight: normal;
-    font-size: 13px;
+  font-weight: normal;
+  font-size: 13px;
 }
 .signup-form .form-control {
-    min-height: 38px;
-    box-shadow: none;
-}	
+  min-height: 38px;
+  box-shadow: none;
+}
 .signup-form .input-group-addon {
-    max-width: 42px;
-    text-align: center;
+  max-width: 42px;
+  text-align: center;
 }
-.signup-form input[type="checkbox"] {
-    margin-top: 2px;
-}   
-.signup-form .btn{        
-    font-size: 16px;
-    font-weight: bold;
-    background: #19aa8d;
-    border: none;
-    min-width: 140px;
+.signup-form input[type='checkbox'] {
+  margin-top: 2px;
 }
-.signup-form .btn:hover, .signup-form .btn:focus {
-    background: #179b81;
-    outline: none;
+.signup-form .btn {
+  font-size: 16px;
+  font-weight: bold;
+  background: #19aa8d;
+  border: none;
+  min-width: 140px;
+}
+.signup-form .btn:hover,
+.signup-form .btn:focus {
+  background: #179b81;
+  outline: none;
 }
 .signup-form a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .signup-form a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 .signup-form form a {
-    color: #19aa8d;
-    text-decoration: none;
-}	
+  color: #19aa8d;
+  text-decoration: none;
+}
 .signup-form form a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .signup-form .fa {
-    font-size: 21px;
+  font-size: 21px;
 }
 .signup-form .fa-paper-plane {
-    font-size: 18px;
+  font-size: 18px;
 }
 .signup-form .fa-check {
-    color: #fff;
-    left: 17px;
-    top: 18px;
-    font-size: 7px;
-    position: absolute;
+  color: #fff;
+  left: 17px;
+  top: 18px;
+  font-size: 7px;
+  position: absolute;
 }
-#message{
-    color: black;
+#message {
+  color: black;
 }
 
 /*Profile view*/
 
 .first-section {
-    display: flex; 
+  display: flex;
 }
 .edit-link:hover {
-    text-decoration: underline;
-
+  text-decoration: underline;
 }
 
 .first-section div {
-    width: 50%;
-    margin-bottom: 2%;
+  width: 50%;
+  margin-bottom: 2%;
 }
 
 .my-tittle {
-    font-family: 'Cabin Sketch', cursive;
-    font-weight: 800;
-    font-size: 30px;
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: 800;
+  font-size: 30px;
 }
 .my-name {
-  font-style: italic;  
+  font-style: italic;
 }
 .my-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .explanation {
-    text-align: center;
-    font-size: 18px;
+  text-align: center;
+  font-size: 18px;
 }
 .group-cards {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .main-div {
-    border: 1px;
-    border-style: outset;
-    margin: 0 2% 2% 0;
-    /* width: 28vw; */
-    border-radius: 20px;
-    color: white;
-    box-shadow: 8px 5px 5px 0px rgba(0, 0, 0, 0.6);
-    background: #fff url(https://i.pinimg.com/474x/a4/5f/b3/a45fb310e25627ba24a7b6ebd48d64bb.jpg) center bottom/cover no-repeat padding-box;
+  border: 1px;
+  border-style: outset;
+  margin: 0 2% 2% 0;
+  /* width: 28vw; */
+  border-radius: 20px;
+  color: white;
+  box-shadow: 8px 5px 5px 0px rgba(0, 0, 0, 0.6);
+  background: #fff
+    url(https://i.pinimg.com/474x/a4/5f/b3/a45fb310e25627ba24a7b6ebd48d64bb.jpg)
+    center bottom/cover no-repeat padding-box;
 }
 
-.first-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    height: 40px;
-    padding: 7px 5px 0 5px;
+.first-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 40px;
+  padding: 7px 5px 0 5px;
 }
 .city-name {
-    font-weight: 900;
-    font-size: large;
+  font-weight: 900;
+  font-size: large;
 }
 .hour {
-    text-align: right;
-    font-size: small;
-    justify-self: left;
-    align-self: left;
+  text-align: right;
+  font-size: small;
+  justify-self: left;
+  align-self: left;
 }
 
-.second-div { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.second-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .image-div {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    width: 45%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 45%;
 }
 
 .status-icon {
-    width: 90px;
-    filter: drop-shadow(11px 4px 8px rgba(0, 0, 0, 0.64));
+  width: 90px;
+  filter: drop-shadow(11px 4px 8px rgba(0, 0, 0, 0.64));
 }
 .status-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .grades {
-    font-size: 30px;
-    margin: 0;
-    font-family: 'Cabin Sketch', cursive;
-    color: whitesmoke;
+  font-size: 30px;
+  margin: 0;
+  font-family: 'Cabin Sketch', cursive;
+  color: whitesmoke;
 }
 
 .status {
-    margin: 0;
-    text-align: center;
-    font-size: 14px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
 }
 
 .third-div {
-    display: flex;
+  display: flex;
 }
 .headers {
-    width: 33%;
+  width: 33%;
 }
 .weat-elem {
-    font-size: 13px;
-    text-align: center;
-    margin: 0;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
 }
 .weath-value {
-    text-align: center;
-    margin: 0;
-    font-size: 12px;
-    font-weight: 900;
-    color: whitesmoke;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 900;
+  color: whitesmoke;
 }
 
 .span.ms-1 {
-    margin: 0;
+  margin: 0;
 }
 .links-box {
-    display: flex;
-    flex: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-top: 10px;
+  display: flex;
+  flex: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-top: 10px;
 }
 
 a {
-    text-decoration: none;
-    color: darkblue;
-    font-weight: 900;
+  text-decoration: none;
+  color: darkblue;
+  font-weight: 900;
 }
 
 .api-link {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .api-link:hover {
-    color: aliceblue;
+  color: aliceblue;
 }
-.city-link{
-    color: white
+.city-link {
+  color: white;
 }
 .city-link:hover {
-    color: whitesmoke;
-    text-decoration: underline;
+  color: whitesmoke;
+  text-decoration: underline;
 }
 a:hover {
-    color: black;
+  color: black;
 }
 
 .delete-link:hover {
-    color:darkred;
-    text-decoration: underline;
+  color: darkred;
+  text-decoration: underline;
 }
 
 /* Layout */
 .container {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* City view*/
 
-.flexbox{
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(228, 228, 228, 0.29);
-    padding-top: 2%;
-    border: 0px outset #393939;
-    border-radius: 30px;
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(228, 228, 228, 0.29);
+  padding-top: 2%;
+  border: 0px outset #393939;
+  border-radius: 30px;
 }
 
 .main-info {
-    width: 50%;
+  width: 50%;
 }
 .astronomy {
-    width: 50%;
-    margin-right: 2%;
-    padding-left: 2%;
-    border: 0px outset #393939;
-    border-radius: 30px;
+  width: 50%;
+  margin-right: 2%;
+  padding-left: 2%;
+  border: 0px outset #393939;
+  border-radius: 30px;
 }
 
 .up-div {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-info1 {
-    border: 2px outset rgba(0, 0, 0, 0.5);
-
+  border: 2px outset rgba(0, 0, 0, 0.5);
 }
 span {
-    float: right;
+  float: right;
 }
 
 .city-tittle {
-    font-size: 30px;
-    font-weight: 900;
+  font-size: 30px;
+  font-weight: 900;
 }
 .main-div2 {
-    justify-self: center;
-    margin-bottom: 2%;
-    border-radius: 30px;
-    background: #fff url(https://i.pinimg.com/originals/d1/39/e9/d139e9fc625a7d90056eedb93f229b30.jpg) center center/cover no-repeat;
+  justify-self: center;
+  margin-bottom: 2%;
+  border-radius: 30px;
+  background: #fff
+    url(https://i.pinimg.com/originals/d1/39/e9/d139e9fc625a7d90056eedb93f229b30.jpg)
+    center center/cover no-repeat;
 }
 .status-icon2 {
-    width: 100px;
-    padding-bottom: 7px;
+  width: 100px;
+  padding-bottom: 7px;
 }
 .hour2 {
-    text-align: right;
-    padding-right: 20px;
-    padding-top: 5px;
-    color: whitesmoke;
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 5px;
+  color: whitesmoke;
 }
 .feels-like {
-    text-align: center;
-    padding-right: 20px;
-    padding-top: 5px;
-    color: whitesmoke;
+  text-align: center;
+  padding-right: 20px;
+  padding-top: 5px;
+  color: whitesmoke;
 }
 
 .grades2 {
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 40px;
-    color: whitesmoke;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 40px;
+  color: whitesmoke;
 }
 
 .status2 {
-    float: right;
-    color: whitesmoke;
+  float: right;
+  color: whitesmoke;
 }
 
 /* Results*/
 
 .back-link {
-    color: black;
-    font-size: 15px;
+  color: black;
+  font-size: 15px;
 }
 
 .back-link:hover {
-    color:darkred;
-    text-decoration: underline;
+  color: darkred;
+  text-decoration: underline;
 }
 h3 {
-    margin: 2% 0;
-    font-weight: 600;
+  margin: 2% 0;
+  font-weight: 600;
 }
 li {
-    list-style: none;
-    margin-bottom: 12px;
+  list-style: none;
+  margin-bottom: 12px;
 }
 
 .result-link:hover {
-    border-top-right-radius:0px;
-    border-bottom-left-radius:0px;
-    color:darkblue;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: darkblue;
 }
 
 /*Edit profile*/
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 900px) {
-    .form {
-        display: flex;
-        flex-direction: row;
-    }
+  .form {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 479px) {
- .card {
-     width: 77%;
- }
- .flexbox{
+  .card {
+    width: 77%;
+  }
+  .flexbox {
     flex-wrap: wrap;
     margin-top: 7%;
-}
-.astronomy {
+  }
+  .astronomy {
     width: 90%;
-    
-}
-.form-group {
+  }
+  .form-group {
     width: 80%;
-}
-.signup-form {
+  }
+  .signup-form {
     width: 92%;
+  }
 }
-} 
-@media (min-width: 480px) and (max-width: 767px){
-    .card {
-        width: 45%;
-    }
+@media (min-width: 480px) and (max-width: 767px) {
+  .card {
+    width: 45%;
+  }
+  /* .home-section {
+    flex-wrap: wrap;
+    flex-direction: row;
+} */
 }
 
 @media all and (device-width: 1024px) {
-    /* body {
+  /* body {
         height: 90%;
     } */
-    footer {
-        align-self: flex-end;
-    }
+  footer {
+    align-self: flex-end;
+  }
 }
 /* @media (min-width: 577px) and (max-width: 767px) {
     .card {

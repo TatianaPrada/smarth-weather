@@ -130,9 +130,6 @@ router.post("/city/add/:cityName", async (req, res) => {
 router.get("/city/delete/:cityId", async (req, res) => {
     
     const cityId = req.params.cityId
-    console.log(cityId)
-    // const currentUser = await User.findById(req.session.loggedUser._id)
-    //findOneAndDelete()
     const userId = req.session.loggedUser._id
     try{
         const editedUser = await User.findByIdAndUpdate(userId, {$pull: {myCities: cityId}}, {new: true}) 

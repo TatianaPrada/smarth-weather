@@ -47,7 +47,6 @@ router.get("/my-profile", isLoggedIn, async (req, res, next) => {
         cityInfo._id = myCities[i]._id.toString()
         citiesArr.push(cityInfo)
       }
-      console.log(citiesArr)
     res.render("user/myProfile", {currentUser, citiesArr})
   } catch(err){
     console.log((err))
@@ -126,8 +125,7 @@ router.post("/login", isLoggedOut, async (req, res) => {
 router.post("/my-profile/edit", async (req, res, next) => {
   const {name, email, confirmPassword} = req.body
   let currentUser = req.session.loggedUser
-  console.log(req.body)
-  
+
     if (!name || !email ||!confirmPassword) {
       res.render("user/editProfile", { currentUser: currentUser, msg: "Please fill all the inputs" });
       return
@@ -142,7 +140,7 @@ router.post("/my-profile/edit", async (req, res, next) => {
       return
     }
     try{
-      console.log(req.body)
+
       const userUpdated = await User.findByIdAndUpdate(currentUser._id, req.body, {new:true})
       req.session.loggedUser = userUpdated
       res.render("user/editProfile", { currentUser: currentUser, msg: `Your account was succesfully updated`});
