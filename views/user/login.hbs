@@ -1,25 +1,42 @@
-<div class="signup-form">
-    <form action="/login" method="POST">
-		<h2>Log in</h2>
-		{{#if msg}}
-		<p class="error-msg">{{msg}}</p>
-		{{/if}}
-		<p><small> User example:</br>Username: JackTh Password: mypassword1</small></p>
-        <div class="form-group">
-			<div class="input-group">
-				<input type="text" class="form-control" name="username" placeholder="Username">
-			</div>
-        </div>
-		<div class="form-group">
-			<div class="input-group">
-				<input type="password" class="form-control" name="password" placeholder="Password">
-			</div>
-        </div>
+<section class="login-sec">
+	<div class="image-cont">
+		<img src="/images/login-image.png" / alt="login">
+	</div>
 
-		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
-        </div>
-    </form>
-	<div class="text-center">Don't you have an account? <a href="/signup">Sing up here</a></div>
-</div>
+	<div class="signup-form">
+		<form action="/login" method="POST">
+			<h2>Log in</h2>
+			{{#if msg}}
+			<p class="error-msg">{{msg}}</p>
+			{{/if}}
 
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" class="form-control" name="username" placeholder="Username">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<input type="password" class="form-control" name="password" placeholder="Password">
+				</div>
+			</div>
+
+			<div class="form-group ">
+				<button type="submit" class="btn btn-primary btn-lg 1btn">Log in</button>
+				<button class="btn btn-lg btn" type="button" data-toggle="collapse" data-target="#collapseExample"
+					aria-expanded="false" aria-controls="collapseExample">
+					Login with an example user
+				</button>
+				</p>
+				<div class="collapse" id="collapseExample">
+					<div class="card card-body">
+						<p>Username: JackTh </br> Password: mypassword1</p>
+					</div>
+				</div>
+			</div>
+			<p>
+		</form>
+		<div class="text-center">Don't you have an account? <a href="/signup">Sing up here</a></div>
+	</div>
+
+</section>

@@ -13,7 +13,7 @@ body {
   min-height: 55%;
 }
 .col-xl-6 .link:hover {
-  color: #2792c4ff;
+  color: #2792c4ff !important;
 }
 
 .error-msg {
@@ -71,6 +71,26 @@ body {
 }
 /* Sign up styles and login */
 
+.login-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  min-height: 85vh;
+}
+
+.image-cont {
+  max-width: 50%;
+}
+.img-cont img {
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .image-cont img {
+    display: none;
+  }
+}
 .form-control,
 .form-control:focus,
 .input-group-addon {
@@ -86,9 +106,9 @@ body {
 }
 .signup-form {
   width: 390px;
-  margin: 0 auto;
+  margin: 5% auto 0 auto;
   padding: 20px 0;
-  min-height: 85vh;
+  
 }
 .signup-form form {
   color: #999;
@@ -161,6 +181,10 @@ body {
   top: 18px;
   font-size: 7px;
   position: absolute;
+}
+.btn {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 #message {
   color: black;
@@ -489,6 +513,7 @@ footer a:hover {
   .signup-form {
     width: 92%;
   }
+
 }
 @media (min-width: 480px) and (max-width: 768px) {
   .card {
@@ -501,16 +526,3 @@ footer a:hover {
 
 }
 
-@media all and (device-width: 1024px) {
-  /* body {
-        height: 90%;
-    } */
-  /* footer {
-    align-self: flex-end;
-  } */
-}
-/* @media (min-width: 577px) and (max-width: 767px) {
-    .card {
-        max-width: 40%;
-    }
-  } */

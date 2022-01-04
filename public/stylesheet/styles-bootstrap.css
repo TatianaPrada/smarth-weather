@@ -11350,13 +11350,12 @@ header.masthead h1, header.masthead .h1 {
 @media (min-width: 1200px){
 
   .showcase .showcase-img {
-    max-width: 47rem;
+    max-width: 40rem;
     background-size: cover;
   }
   .showcase .showcase-text {
-    min-width: 45rem;
+    min-width: 35rem;
   }
-
 }
 
 @media (min-width: 1555px) {
