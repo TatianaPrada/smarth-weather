@@ -22,7 +22,7 @@ router.get("/search/results", isLoggedIn, async (req, res) => {
     }
 })
 
-//GET Route for each city
+//GET Route for each city after getting the results
 
 router.get("/results/city/:cityName", async (req, res) => {
     let localtime = ""
@@ -30,6 +30,7 @@ router.get("/results/city/:cityName", async (req, res) => {
     try{
         const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${cityName}&days=3&aqi=yes&alerts=no`)
         const cityDetails = apiCall.data
+
         localtime = cityDetails.location.localtime.split(" ")[1]
         cityDetails.location.localtime = localtime
         const forecastday = apiCall.data.forecast.forecastday
@@ -43,7 +44,6 @@ router.get("/results/city/:cityName", async (req, res) => {
             else if (airQuality == "4"){airQuality = "Unhealthy"}
             else if (airQuality == "5"){airQuality = "Very Unhealthy"}
             else {airQuality = "Dangerous"}
-
             return airQuality
         }
         airToString()
@@ -119,13 +119,6 @@ router.post("/city/add/:cityName", async (req, res) => {
 });
 
 
-// router.get("/city/delete/:cityId", isLoggedIn, async (req, res, next) => {
-//     const currentUser = req.session.loggedUser
-//     res.render("users/myProfile", {currentUser})
-//   })
-
-
-  //**//
 //Route Post for delete a city
 router.get("/city/delete/:cityId", async (req, res) => {
     
@@ -139,9 +132,5 @@ router.get("/city/delete/:cityId", async (req, res) => {
         console.log((err))
     }
 });
-
-
-
-
 
 module.exports = router;
