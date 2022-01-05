@@ -1,10 +1,10 @@
-<section class="login-sec">
+<section class="login-sec mt-3 container">
 	<div class="image-cont">
 		<img src="/images/login-image.png" / alt="login">
 	</div>
 
 	<div class="signup-form">
-		<form action="/login" method="POST">
+		<form class="form1" action="/login" method="POST">
 			<h2>Log in</h2>
 			{{#if msg}}
 			<p class="error-msg">{{msg}}</p>
@@ -23,20 +23,16 @@
 
 			<div class="form-group ">
 				<button type="submit" class="btn btn-primary btn-lg 1btn">Log in</button>
-				<button class="btn btn-lg btn" type="button" data-toggle="collapse" data-target="#collapseExample"
-					aria-expanded="false" aria-controls="collapseExample">
-					Login with an example user
-				</button>
-				</p>
-				<div class="collapse" id="collapseExample">
-					<div class="card card-body">
-						<p>Username: JackTh </br> Password: mypassword1</p>
-					</div>
-				</div>
-			</div>
-			<p>
+		</form>
+		<form action="/login" method="POST">
+			<input type="text" class="hidden" name="username" value="JackTh">
+			<input type="text" class="hidden" name="password" value="mypassword1">
+			<button class="btn btn-lg btn" type="submit">
+				Login with a test user
+			</button>
 		</form>
 		<div class="text-center">Don't you have an account? <a href="/signup">Sing up here</a></div>
+	</div>
 	</div>
 
 </section>

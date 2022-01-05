@@ -76,13 +76,13 @@ body {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
 }
 
 .image-cont {
   max-width: 50%;
 }
-.img-cont img {
+.image-cont img {
   width: 100%;
 }
 
@@ -110,7 +110,7 @@ body {
   padding: 20px 0;
   
 }
-.signup-form form {
+.signup-form .form1 {
   color: #999;
   border-radius: 3px;
   margin-bottom: 15px;
@@ -162,11 +162,11 @@ body {
 .signup-form a:hover {
   text-decoration: none;
 }
-.signup-form form a {
+.signup-form .form1 a {
   color: #2792c4ff;
   text-decoration: none;
 }
-.signup-form form a:hover {
+.signup-form .form1 a:hover {
   text-decoration: underline;
 }
 .signup-form .fa {
@@ -188,6 +188,9 @@ body {
 }
 #message {
   color: black;
+}
+.hidden {
+  display: none;
 }
 
 /*Profile view*/
@@ -355,10 +358,16 @@ a:hover {
   text-decoration: underline;
 }
 
+.profile {
+  width: 100%;
+  min-height: 80vh;
+}
+
 /* Layout */
 .container {
   margin-top: 10px;
 }
+
 
 /* City view*/
 

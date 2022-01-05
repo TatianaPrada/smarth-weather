@@ -2,6 +2,7 @@ const router = require("express").Router();
 const axios = require("axios")
 const City = require("../models/cities.model")
 const User = require("../models/User.model");
+const lodash = require('lodash')
 
 //My own middleware
 const {isLoggedIn} = require("../middleware/route-guard")
@@ -13,8 +14,9 @@ router.get("/search", isLoggedIn, (req, res) => {
 
 router.get("/search/results", isLoggedIn, async (req, res) => {
     const destFromForm = req.query.cityName;
+    const destFromFormWithNotAccents = lodash.deburr(destFromForm)
     try{
-        const apiCall = await axios(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_KEY}&q=${destFromForm}&aqi=no`)
+        const apiCall = await axios(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_KEY}&lang=pt&q=${destFromFormWithNotAccents}`)
         const destinations = apiCall.data
         res.render("cities/results", {destinations})
     } catch(err){
@@ -35,7 +37,7 @@ router.get("/results/city/:cityName", async (req, res) => {
         cityDetails.location.localtime = localtime
         const forecastday = apiCall.data.forecast.forecastday
         const [day1, day2, day3] = forecastday
-    
+
         let airQuality = cityDetails.current.air_quality['gb-defra-index']
         const airToString = ()=> {
             if(airQuality == "1") {airQuality = "Good"} 
