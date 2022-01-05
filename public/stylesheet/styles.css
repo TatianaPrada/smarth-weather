@@ -30,7 +30,18 @@ body {
   color: #2792c4ff;
 }
 
+.main-div3 {
+  background-color: rgba(0, 0, 0, .1);
+  height: max-content;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1%;
 
+}
+
+.main-div3 p {
+  color: whitesmoke;
+}
 /* Nav bar*/
 
 .tittle {
@@ -151,6 +162,15 @@ body {
   border: none;
   min-width: 140px;
 }
+
+
+.btn-dark:hover,
+.btn-dark:focus {
+  color:black;
+  background: whitesmoke;
+  outline: none;
+}
+
 .signup-form .btn:hover,
 .signup-form .btn:focus {
   background: #2792c4ff;
@@ -182,7 +202,7 @@ body {
   font-size: 7px;
   position: absolute;
 }
-.btn {
+.signup-form .btn {
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
@@ -194,9 +214,15 @@ body {
 }
 
 /*Profile view*/
-
+.edit-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .first-section {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .edit-link:hover {
   text-decoration: underline;
@@ -211,15 +237,21 @@ body {
   font-family: 'Cabin Sketch', cursive;
   font-weight: 800;
   font-size: 30px;
+  width: 90vw;
 }
 .my-name {
   font-style: italic;
+  font-size: 1.2rem;
 }
 .my-section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
+}
+
+.my-section p, .my-section a {
+  width: 100%;
 }
 
 .explanation {
@@ -234,6 +266,7 @@ body {
   border: 1px;
   border-style: outset;
   margin: 0 2% 2% 0;
+  
   /* width: 28vw; */
   border-radius: 20px;
   color: white;
@@ -243,21 +276,34 @@ body {
     center bottom/cover no-repeat padding-box;
 }
 
+.form-mr {
+  margin-right: 7%;
+}
+
 .first-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
   height: 40px;
-  padding: 7px 5px 0 5px;
+  padding: 12px 5px 12px 5px;
 }
+.first-div1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 25%;
+  padding: 12px 5px 12px 5px;
+}
+
 .city-name {
   font-weight: 900;
   font-size: large;
 }
 .hour {
   text-align: right;
-  font-size: small;
+  font-size: 1rem;
   justify-self: left;
   align-self: left;
 }
@@ -266,8 +312,17 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* margin-top: 10%; */
 }
 
+.second-div1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.main-div .second-div {
+  margin-top: 10%; 
+}
 .image-div {
   display: flex;
   align-items: center;
@@ -287,7 +342,7 @@ body {
 }
 
 .grades {
-  font-size: 30px;
+  font-size: 2.3rem;
   margin: 0;
   font-family: 'Cabin Sketch', cursive;
   color: whitesmoke;
@@ -296,24 +351,35 @@ body {
 .status {
   margin: 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 1.0rem;
+  color: black;
+
 }
 
 .third-div {
   display: flex;
 }
+
+.third-div1 {
+  display: flex;
+  margin-bottom: 4%;
+}
+
+.third-div1 p {
+  color: whitesmoke;
+}
 .headers {
   width: 33%;
 }
 .weat-elem {
-  font-size: 13px;
+  font-size: 1rem;
   text-align: center;
   margin: 0;
 }
 .weath-value {
   text-align: center;
   margin: 0;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 900;
   color: whitesmoke;
 }
@@ -344,24 +410,31 @@ a {
 }
 .city-link {
   color: white;
+  font-size: 1.3rem;
+
 }
 .city-link:hover {
-  color: whitesmoke;
-  text-decoration: underline;
-}
-a:hover {
   color: black;
 }
 
+
+a:hover {
+  color: black;
+}
+.delete-link {
+  color: black;
+}
 .delete-link:hover {
-  color: darkred;
-  text-decoration: underline;
+  font-size: 1rem;
+  color: red;
 }
 
-.profile {
+.min-height {
   width: 100%;
   min-height: 80vh;
 }
+
+
 
 /* Layout */
 .container {
@@ -399,9 +472,9 @@ a:hover {
 .main-info1 {
   border: 2px outset rgba(0, 0, 0, 0.5);
 }
-span {
+/* span {
   float: right;
-}
+} */
 
 .city-tittle {
   font-size: 30px;
@@ -419,35 +492,45 @@ span {
   width: 100px;
   padding-bottom: 7px;
 }
+.date {
+    text-align: left;
+    margin: 15px 0 8px 10px;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
 .hour2 {
   text-align: right;
   padding-right: 20px;
-  padding-top: 5px;
+  padding-top: 0;
   color: whitesmoke;
+  font-size: 1.2rem;
 }
 .feels-like {
   text-align: center;
   padding-right: 20px;
   padding-top: 5px;
   color: whitesmoke;
+  font-size: 1.2rem;
+
 }
 
 .grades2 {
   font-family: 'Cabin Sketch', cursive;
-  font-size: 40px;
+  font-size: 3rem;
   color: whitesmoke;
 }
 
 .status2 {
   float: right;
   color: whitesmoke;
+  font-size: 1.2rem;
 }
 
 /* Results*/
 
 .back-link {
   color: black;
-  font-size: 15px;
+  font-size: 1.2rem;
 }
 
 .back-link:hover {
@@ -460,12 +543,17 @@ h3 {
 }
 li {
   list-style: none;
+  margin-bottom: 1.5%;
+}
+
+.result-link {
+  font-size: 1.2rem;
 }
 
 .result-link:hover {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  color: #2792c4ff;
+  color: darkred;
 }
 
 /*Edit profile*/
@@ -495,19 +583,23 @@ footer .link{
 footer a:hover {
   color:#0976be;
 }
-/* 
-@media (min-width: 900px) {
-  .form {
-    display: flex;
-    flex-direction: row;
-  }
-} */
-
-
 
 @media (max-width: 479px) {
+
   .card {
     width: 77%;
+    margin-bottom: 5%;
+  }
+  .city-tittle {
+    font-size: 1.3rem;
+    margin-right: 5px;
+  }
+  a.add-btn {
+    font-size: 1rem;
+    width: 25%;
+  }
+  .container {
+    padding-right: 0 auto;
   }
   .flexbox {
     flex-wrap: wrap;
@@ -522,11 +614,17 @@ footer a:hover {
   .signup-form {
     width: 92%;
   }
+  .edit-profile {
+    flex-direction: column;
+  }
 
 }
 @media (min-width: 480px) and (max-width: 768px) {
   .card {
-    width: 45%;
+    width: 60%;
+  }
+  .edit-profile {
+    flex-direction: column;
   }
 
   #hbs-body-wrapper {
@@ -534,4 +632,23 @@ footer a:hover {
   }
 
 }
+.roll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 0px;
 
+}
+@media(max-width: 1100px) {
+  .roll {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .main-div3{
+    min-width: 60%;
+    max-width: 88%;
+  }
+}

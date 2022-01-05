@@ -1,8 +1,42 @@
 <header class="masthead">
-    <div class="container position-relative" <div class="row justify-content-center">
+    <div class="container roll d-flex position-relative">
         <div class="col-xl-6">
             <div class="text-center text-white">
                 <h1 class="mb-6">All oficial and real-time weather information in just one site!</h1>
+            </div>
+        </div>
+        <div class="main-div3 align-self-center col-sm-5">
+            <div class="first-div1">
+                <a class="city-link"
+                    href="/results/city/{{cityDetails.location.name}}+{{cityDetails.location.country}}">{{cityDetails.location.name}}</a>
+                <p class="hour"><i class="bi bi-clock"> </i>{{dayOfTheWeek}}, {{dateString}} -
+                    {{cityDetails.location.localtime}}</p>
+            </div>
+            <div class="second-div1 pb-4">
+                <div class="image-div">
+                    <img class="status-icon" src="{{cityDetails.current.condition.icon}}" />
+                </div>
+                <div class="status-div">
+                    <p class="grades">{{cityDetails.current.temp_c}}º C</p>
+                    <p class="status">{{cityDetails.current.condition.text}}</p>
+                </div>
+            </div>
+            <div class="third-div1">
+                <div class="headers">
+                    <p class="weat-elem">Wind</p>
+                    <p class="weath-value"><i class="bi bi-wind"></i> <span class=""> {{cityDetails.current.wind_kph}}
+                            kph</span></p>
+                </div>
+                <div class="headers">
+                    <p class="weat-elem">Humidity</p>
+                    <p class="weath-value"> <i class="bi bi-droplet-fill"></i> <span class="">
+                            {{cityDetails.current.humidity}} %</span></p>
+                </div>
+                <div class="headers">
+                    <p class="weat-elem">Clouds</p>
+                    <p class="weath-value"><i class="bi bi-cloud-fill"></i> <span class="">
+                            {{cityDetails.current.cloud}} %</span></span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -44,7 +78,8 @@
                 style="background-image: url('/images/image2.png')"></div>
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                 <h2>Save all your prefered locations in just one application</h2>
-                <p class="lead mb-0">Create an account for free, and start to search for your favorite city. You will able to have an infinite list of locations worldwide!</p>
+                <p class="lead mb-0">Create an account for free, and start to search for your favorite city. You will
+                    able to have an infinite list of locations worldwide!</p>
             </div>
         </div>
         <div class="row g-0">
@@ -52,7 +87,8 @@
             </div>
             <div class="col-lg-6 my-auto showcase-text">
                 <h2>Real-Time and Complete information</h2>
-                <p class="lead mb-0">Find air quality data, time zone, astronomy information, uv data and more for millions of cities!</p>
+                <p class="lead mb-0">Find air quality data, time zone, astronomy information, uv data and more for
+                    millions of cities!</p>
             </div>
         </div>
         <div class="row g-0">
@@ -70,7 +106,8 @@
     <div class="container position-relative">
         <div class="row justify-content-center">
             <div class="col-xl-6">
-                <h2 class="mb-4 ">Ready to get started? <a class="text-black link" href='/signup'>Sign up</a> now for free or <a class="text-black link"  href='/login'>login</a> to your account!</h2>            
+                <h2 class="mb-4 ">Ready to get started? <a class="text-black link" href='/signup'>Sign up</a> now for
+                    free or <a class="text-black link" href='/login'>login</a> to your account!</h2>
             </div>
         </div>
     </div>

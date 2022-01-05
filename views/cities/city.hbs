@@ -1,21 +1,26 @@
-<section>
+<div class="container min-height mt-5 mb-4">
+
+<section class="">
     <div class="up-div">
         <div>
             <p class="city-tittle"><i class="bi bi-pin-map-fill"></i> {{cityDetails.location.name}}, {{cityDetails.location.region}} - {{cityDetails.location.country}}</p>
         </div>
-        <div>
+        {{#if session.loggedUser}}
+        <div class="this">
             <form method="POST" action="/city/add/{{cityDetails.location.name}}+{{cityDetails.location.country}}" name="city">
-                <button type="submit" class="btn btn-outline-dark">Add to my favorites</button>
+                <button type="submit" class="btn btn-dark add-btn">Add to my Smart Cities</button>
             </form>
         </div>
+        {{/if}}
     </div>
     
 </section>
 
 <section>
     <div class="group-cards row" > 
-        <div class="main-div2 card col-sm-5" >
+        <div class="main-div2 card col-sm-4" >
             <div class="first-div2">
+                <p class="date">{{localDate}}</p>
                 <p class="hour2"><i class="bi bi-clock"> </i>{{cityDetails.location.localtime}}</p>
             </div>
             <div class="second-div">
@@ -59,3 +64,4 @@
     </div>
 
 </section>
+</div>

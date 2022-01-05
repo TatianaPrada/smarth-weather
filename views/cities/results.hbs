@@ -1,13 +1,13 @@
-
-<a class=" back-link badge badge-light" href="/"><i class="bi bi-arrow-left-short"></i>
- Back</a>
-<h3>Results:</h3>
-
-<ul>
-{{#each destinations}}
-<li>
-<a class="result-link" href="/results/city/{{this.name}}+{{this.country}}"><i class="bi bi-arrow-right-short"></i>
-  {{this.name}} </a>
-</li>
-{{/each}}
-</ul>
+<div class="min-height container">
+  <a class=" back-link badge badge-light" href="/"><i class="bi bi-arrow-left"></i>
+    Back</a>
+  <h3>Results:</h3>
+  <ul>
+    {{#each destinations}}
+    <li>
+      <a class="result-link" href="/results/city/{{this.name}}+{{this.country}}"><i class="bi bi-arrow-right-short"></i>
+        {{this.name}}, {{this.country}}  </a>
+    </li>
+    {{/each}}
+  </ul>
+</div>

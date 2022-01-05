@@ -7083,7 +7083,7 @@ textarea.form-control-lg {
 }
 
 .justify-content-between {
-  justify-content: space-between !important;
+  justify-content: center;
 }
 
 .justify-content-around {
@@ -11299,7 +11299,10 @@ textarea.form-control-lg {
 
 
 header.masthead {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: #343a40;
   background: url("/images/sky-dark-light-clouds.jpeg") no-repeat center center;
   background-size: cover;
@@ -11310,14 +11313,15 @@ header.masthead:before {
   content: "";
   position: absolute;
   background-color: #1c375e;
-  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
   opacity: 0.2;
 }
+
 header.masthead h1, header.masthead .h1 {
   font-size: 2rem;
+  margin: 0 5% 4% 0;
 }
 @media (min-width: 769px) {
   header.masthead {
@@ -11328,6 +11332,14 @@ header.masthead h1, header.masthead .h1 {
     font-size: 3.5rem;
   }
 }
+
+@media (max-width: 1200px) {
+  header.masthead h1 {
+    margin-right: 0;
+    margin-bottom: 5%;
+  }
+}
+
 .showcase {
   margin-bottom: 2%;
 }

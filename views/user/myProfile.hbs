@@ -1,8 +1,8 @@
-<div class="mt-3 container profile">
+<div class="mt-3 container min-height">
 
 <section class="first-section ">
     <div>
-        <p class="my-tittle">My Smart Cities</p>
+        <p class="my-tittle"> <i class="bi bi-cloud-sun"></i>  My Smart Cities</p>
     </div>
     <div class="my-section">
         <p class="my-name"><i class="bi bi-person-fill"></i> {{currentUser.name}}</p>
@@ -26,9 +26,9 @@
                 <div class="main-div card col-sm-3" >
                     <div class="first-div">
                         <a class="city-link" href="/results/city/{{this.location.name}}+{{this.location.country}}">{{this.location.name}}</a>
-                        <p class="hour"><i class="bi bi-clock"> </i>{{this.location.localtime}}</p>
+                        <p class="hour"><i class="bi bi-clock"> </i>{{this.location.localtime_epoch}} - {{this.location.localtime}}</p>
                     </div>
-                    <div class="second-div">
+                    <div class="second-div pb-4">
                         <div class="image-div">
                             <img class="status-icon" src="{{this.current.condition.icon}}" />
                         </div>
@@ -64,10 +64,5 @@
 </section>
 
 </div>
-
-    {{!-- <form method="GET" action="/city/delete/{{this._id}}" name="city">
-        <button type="submit" class="btn btn-primary">Delete of my favorites</button>
-        </form> 
- --}}
 
 

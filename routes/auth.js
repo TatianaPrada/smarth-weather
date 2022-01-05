@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const axios = require("axios");
+const moment = require("moment")
 
 //Model
 const User = require("../models/User.model");
@@ -38,12 +39,22 @@ router.get("/my-profile", isLoggedIn, async (req, res, next) => {
     
     let citiesArr = []
     let localtime = ""
+
+    let date = ""
+
+
+    let dateString = ""
    
       for(let i = 0; i < myCities.length; i++){
         const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${myCities[i].name}+${myCities[i].country}&days=3&aqi=yes&alerts=no`)
         const cityInfo = apiCall.data
+
+        date = cityInfo.location.localtime.split(" ")[0]
+        dateString = moment(date).format("ll")
+
         localtime = cityInfo.location.localtime.split(" ")[1]
         cityInfo.location.localtime = localtime
+        cityInfo.location.localtime_epoch = dateString
         cityInfo._id = myCities[i]._id.toString()
         citiesArr.push(cityInfo)
       }
