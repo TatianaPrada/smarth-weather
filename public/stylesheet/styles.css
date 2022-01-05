@@ -22,6 +22,12 @@ body {
   font-weight: 700;
 }
 
+.msg {
+  color:mediumseagreen;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 /*landing page*/
 .position-relative {
   text-align: -webkit-center;

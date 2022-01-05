@@ -42,7 +42,6 @@ router.get("/my-profile", isLoggedIn, async (req, res, next) => {
 
     let date = ""
 
-
     let dateString = ""
    
       for(let i = 0; i < myCities.length; i++){
@@ -69,11 +68,11 @@ router.get("/my-profile", isLoggedIn, async (req, res, next) => {
 router.post("/signup", isLoggedOut, async (req, res, next) => {
     const { username, name, email, password, passwordRepeat } = req.body;
     if (!username || !email || !name || !password || !passwordRepeat) {
-      res.render("user/signup", { msg: "Please fill all the inputs" });
+      res.render("user/signup", { error: "Please fill all the inputs" });
       return;
     }
     if (password !== passwordRepeat) {
-      res.render("user/signup", { msg: "The 2 passwords don't match" });
+      res.render("user/signup", { error: "The 2 passwords don't match" });
       return;
     }
     if (password.length < 8) {
@@ -84,16 +83,16 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
     }
     const existingUser = await User.findOne({username});
     if (existingUser) {
-      res.render("user/signup", { msg: "This user has already an account" });
+      res.render("user/signup", { error: "This user has already an account" });
       return;
     }
     const existingEmail = await User.findOne({ email });
     if (existingEmail) {
-      res.render("user/signup", { msg: "This email has already an account" });
+      res.render("user/signup", { error: "This email has already an account" });
       return;
     }
     if (/\S+@\S+\.\S+/.test(email) === false) {
-      res.render("user/signup", { msg: "Please write a valid email" });
+      res.render("user/signup", { error: "Please write a valid email" });
     }
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -114,18 +113,18 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
 router.post("/login", isLoggedOut, async (req, res) => {
   const {username, password } = req.body;
   if (!username || !password) {
-    res.render("user/login", { msg: "Please fill all the inputs" });
+    res.render("user/login", { error: "Please fill all the inputs" });
     return;
   }
   const existingUser = await User.findOne({ username: username });
 
   if (!existingUser) {
-    res.render("user/login", { msg: "User doesn't exist, please verify the information" });
+    res.render("user/login", { error: "User doesn't exist, please verify the information" });
     return;
   }
   const passwordMatch = await bcrypt.compare(password, existingUser.password);
   if (!passwordMatch) {
-    res.render("user/login", { msg: "Incorrect password" });
+    res.render("user/login", { error: "Incorrect password" });
     return;
   }
   req.session.loggedUser = existingUser

@@ -7,8 +7,12 @@
 		<form class="form1" action="/signup" method="POST">
 			<h2>Sign Up</h2>
 			<p>Please fill in this form to create an account!</p>
+			{{#if error}}
+			<p class="error-msg">{{error}}</p>
+			{{/if}}
+
 			{{#if msg}}
-			<p class="error-msg">{{msg}}</p>
+			<p class="msg">{{msg}}</p>
 			{{/if}}
 			<div class="form-group">
 				<div class="input-group">

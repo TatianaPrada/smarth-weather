@@ -6,8 +6,12 @@
 	<div class="signup-form">
 		<form class="form1" action="/login" method="POST">
 			<h2>Log in</h2>
+			{{#if error}}
+			<p class="error-msg">{{error}}</p>
+			{{/if}}
+
 			{{#if msg}}
-			<p class="error-msg">{{msg}}</p>
+			<p class="msg">{{msg}}</p>
 			{{/if}}
 
 			<div class="form-group">
