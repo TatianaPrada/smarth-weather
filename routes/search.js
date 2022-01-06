@@ -91,8 +91,7 @@ router.post("/city/add/:cityName", async (req, res) => {
         const myCities = userCities.myCities
     
         let citiesArr = []
-        let localtime = ""
- 
+        let localtime = "" 
    
         for(let i = 0; i < myCities.length; i++){
             const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${myCities[i].name}+${myCities[i].country}&days=3&aqi=yes&alerts=no`)

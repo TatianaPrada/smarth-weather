@@ -10,10 +10,12 @@ router.get("/", async (req, res) =>{
   let dayOfTheWeek = ""
   let dateString = ""
   try{
+    //With real location of user/client: 
+  
       // const location = await axios("https://geolocation-db.com/json")
       // console.log(location.data.city)
-
       // const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${location.data.city}+${location.data.country}&days=3&aqi=yes&alerts=no`)
+      
       const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=porto+portugal&days=3&aqi=yes&alerts=no`)
         const cityDetails = apiCall.data
         date = cityDetails.location.localtime.split(" ")[0]
@@ -21,14 +23,12 @@ router.get("/", async (req, res) =>{
         dayOfTheWeek = moment(date).format("dddd")
         localDate = dayOfTheWeek + ","+ " " + dateString
 
-        console.log(cityDetails)
-
         localtime = cityDetails.location.localtime.split(" ")[1]
         cityDetails.location.localtime = localtime
         const forecastday = apiCall.data.forecast.forecastday
         const [day1, day2, day3] = forecastday
 
-      res.render("home", {cityDetails, dayOfTheWeek, dateString, localDate})
+      res.render("home", {cityDetails, dayOfTheWeek, dateString, localDate, day1})
   } catch(err){
     console.log((err))
 }
