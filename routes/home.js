@@ -10,10 +10,11 @@ router.get("/", async (req, res) =>{
   let dayOfTheWeek = ""
   let dateString = ""
   try{
-      const location = await axios("https://geolocation-db.com/json")
-      console.log(location.data.city)
+      // const location = await axios("https://geolocation-db.com/json")
+      // console.log(location.data.city)
 
-      const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${location.data.city}+${location.data.country}&days=3&aqi=yes&alerts=no`)
+      // const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=${location.data.city}+${location.data.country}&days=3&aqi=yes&alerts=no`)
+      const apiCall = await axios(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_KEY}&q=porto+portugal&days=3&aqi=yes&alerts=no`)
         const cityDetails = apiCall.data
         date = cityDetails.location.localtime.split(" ")[0]
         dateString = moment(date).format("ll")
